@@ -1,0 +1,90 @@
+\documentclass[11pt]{article}
+
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\newtheorem{theorem}{Theorem}
+
+\begin{document}
+
+\begin{theorem}
+  Divisibility has the following properties:
+
+  \begin{enumerate}
+  \item \makebox[40ex][l]{\(n \mid n\)} (reflexive property)
+  \item \makebox[40ex][l]{\(d \mid n\) and \(n \mid m\) implies \(d \mid m\)} (transitive property)
+  \item \makebox[40ex][l]{\(d \mid n\) and \(d \mid m\) implies \(d \mid (an+bm)\)} (linearity property)
+  \item \makebox[40ex][l]{\(d \mid n\) implies \(ad \mid an\)} (multiplication property)
+  \item \makebox[40ex][l]{\(ad \mid an\) and \(a \neq 0 \) implies \(d \mid n\)} (cancellation property)
+  \item \makebox[40ex][l]{\(1 \mid n\)} (1 divides every integer)
+  \item \makebox[40ex][l]{\(n \mid 0\)} (every integer divides zero)
+  \item \makebox[40ex][l]{\(0 \mid n\) implies \(n=0\)} (zero divides only zero)
+  \item \makebox[40ex][l]{\(d \mid n\) and \(n \neq 0\) implies \(| d | \leq | n |\)} (comparison property)
+  \item \makebox[40ex][l]{\(d \mid n\) and \(n \mid d\) implies \(| d | = | n |\)}
+    \item \makebox[40ex][l]{\(d \mid n\) and \(d \neq 0\) implies \((n/d) \mid n.\)}
+  \end{enumerate}
+\end{theorem}
+
+\begin{theorem}
+  Given any two integers a and b, there is a common divisor d of a and b of the form
+  \[
+d = ax + by,
+\]
+where x and y are integers. Moreover, every common divisor of a and b divides this d.
+\end{theorem}
+
+\begin{proof}
+  First we assume that \(a \geq 0\) and \(b \geq 0\). We use induction on \(n\), where
+  \(n = a + b\). If \(n = 0\) then \(a = b = 0\) and we can take \(d = 0\) with \(x
+  = y = 0\). Assume, then, that the theorem has been proved for \(0,1,2,...,n-1\).
+  By symmetry, we can assume \(a \geq b\). If \(b = 0\) take \(d = a, x = 1, y = 0\).
+  If \(b \geq 1\) apply the theorem to \(a - b\) and \(b\). Since \((a - b) + b =
+  a = n - b \leq n - 1\), the induction assumption is applicable and there is a common
+  divisor \(d\) of \(a - b\) and \(b\) of the form \(d = (a-b)x + by\). This \(d\)
+  also divides \((a - b) + b = a\) so \(d\) is a common divisor of \(a\) and \(b\)
+  and we have \(d = ax + (y - x)b\), a linear combination of \(a\) and \(b\). To
+  complete the proof we need to show that every common divisor divides \(d\). But
+  a common divisor divides \(a\) and \(b\) and hence, by linearity, divides \(d\).
+
+  If \(a < 0\) or \(b < 0\)(or both), we can apply the result just proved to
+  \(| a |\) and \(| b |\). Then there is a common divisor \(d\) of
+  \(| a |\) and \(| b |\) of the form
+  \[
+  d = | a | x + | b | y.
+  \]
+  If \(a < 0\), \(| a | x = -ax = a(-x)\). Similarly, if \(b < 0\), \(|
+  b | y = b(-y)\). Hence \(d\) is again a linear combination of \(a\) and \(b\).
+\end{proof}
+
+\begin{theorem}
+  Given integers a and b, there is one and only one number d with the following properties:
+  \begin{enumerate}
+  \item \makebox[30ex][l]{\(d \geq 0\)} (d is nonnegative)
+  \item \makebox[30ex][l]{\(d \mid a\) and \(d \mid b\)} (d is a common divisor of a and b)
+  \item \makebox[30ex][l]{\(e \mid a\) and \(e \mid b\) implies \(e \mid d\)} (every common divisor divides d).
+  \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+  By Theorem 2 there is at least one \(d\) satisfying condition 2 and 3. Also,
+  \(-d\) satisfies these conditions. But if \(d'\) satisfies 2 and 3, then
+  \(d \mid d'\) and \(d' \mid d\), so \(| d | = | d' |\). Hence
+  there is exactly one \(d \geq 0\) satisfying 2 and 3.
+\end{proof}
+
+\begin{theorem}
+  The gcd has the following properties:
+  \begin{enumerate}
+  \item \((a,b) = (b,a)\)\\
+    \makebox[25ex][l]{\(aDb = bDa\)} (commutative law)
+  \item \((a,(b,c)) = ((a,b),c)\)\\
+    \makebox[25ex][l]{\(aD(bDc)=(aDb)Dc\)} (associative law)
+  \item \((ac,bc) = |c|(a,b)\)\\
+    \makebox[25ex][l]{\((ca)D(cb) = |c|(aDb)\)} (distribute law)
+  \item \((a,1) = (1,a) = 1, \qquad (a,0) = (0,a) = |a|.\)\\
+    \(aD1 = 1Da = 1, \qquad aD0 = 0Da = |a|.\)
+  \end{enumerate}
+\end{theorem}
+
+\end{document}
