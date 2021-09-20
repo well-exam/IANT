@@ -6,6 +6,10 @@
 
 \newtheorem{theorem}{Theorem}
 
+\theoremstyle{definition}
+\newtheorem*{defn}{Definition}
+\newtheorem*{note}{Note}
+
 \begin{document}
 
 \begin{theorem}
@@ -22,7 +26,7 @@
   \item \makebox[40ex][l]{\(0 \mid n\) implies \(n=0\)} (zero divides only zero)
   \item \makebox[40ex][l]{\(d \mid n\) and \(n \neq 0\) implies \(| d | \leq | n |\)} (comparison property)
   \item \makebox[40ex][l]{\(d \mid n\) and \(n \mid d\) implies \(| d | = | n |\)}
-    \item \makebox[40ex][l]{\(d \mid n\) and \(d \neq 0\) implies \((n/d) \mid n.\)}
+    \item \makebox[40ex][l]{\(d \mid n\) and \(d \neq 0\) implies \((n/d) \mid n\).}
   \end{enumerate}
 \end{theorem}
 
@@ -37,7 +41,7 @@ where x and y are integers. Moreover, every common divisor of a and b divides th
 \begin{proof}
   First we assume that \(a \geq 0\) and \(b \geq 0\). We use induction on \(n\), where
   \(n = a + b\). If \(n = 0\) then \(a = b = 0\) and we can take \(d = 0\) with \(x
-  = y = 0\). Assume, then, that the theorem has been proved for \(0,1,2,...,n-1\).
+  = y = 0\). Assume, then, that the theorem has been proved for \(0,1,2,\ldots,n-1\).
   By symmetry, we can assume \(a \geq b\). If \(b = 0\) take \(d = a, x = 1, y = 0\).
   If \(b \geq 1\) apply the theorem to \(a - b\) and \(b\). Since \((a - b) + b =
   a = n - b \leq n - 1\), the induction assumption is applicable and there is a common
@@ -73,6 +77,12 @@ where x and y are integers. Moreover, every common divisor of a and b divides th
   there is exactly one \(d \geq 0\) satisfying 2 and 3.
 \end{proof}
 
+\begin{defn}
+  The number \(d\) of Theorem 3 is called the greatest common divisor (gcd) of \(a\) and \(b\) and is denoted by \((a,b)\) or by
+  \(aDb\). If \((a,b) = 1\) then \(a\) and \(b\) are said to be relatively prime.
+\end{defn}
+
+
 \begin{theorem}
   The gcd has the following properties:
   \begin{enumerate}
@@ -82,9 +92,125 @@ where x and y are integers. Moreover, every common divisor of a and b divides th
     \makebox[25ex][l]{\(aD(bDc)=(aDb)Dc\)} (associative law)
   \item \((ac,bc) = |c|(a,b)\)\\
     \makebox[25ex][l]{\((ca)D(cb) = |c|(aDb)\)} (distribute law)
-  \item \((a,1) = (1,a) = 1, \qquad (a,0) = (0,a) = |a|.\)\\
-    \(aD1 = 1Da = 1, \qquad aD0 = 0Da = |a|.\)
+  \item \((a,1) = (1,a) = 1, \qquad (a,0) = (0,a) = |a|\).\\
+    \(aD1 = 1Da = 1, \qquad aD0 = 0Da = |a|\).
   \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+  Let \(d = (a, b)\) and let \(e = (ac, bc)\). We wish to prove that \(e = |c|d\). Write
+  \(d = ax + by\). Then we have
+  \begin{equation}
+    cd = acx + bcy.
+  \end{equation}
+  Therefore \(cd \mid e\) because \(cd\) divides both \(ac\) and \(bc\). Also,  Equation (1) shows
+  that \(e \mid cd\) because \(e \mid ac\) and \(e \mid bc\). Hence \(|e| = |cd|\), or \(e = |c|d\).
+\end{proof}
+
+\begin{theorem}[Euclid's lemma]
+  If \(a \mid bc\) and if \((a,b) = 1\), then \(a \mid c\).
+\end{theorem}
+
+\begin{proof}
+  Since \((a,b) = 1\) we can write \(1 = ax + by\). Therefore \(c = acx + bcy\).
+  But \(a \mid acx\) and \(a \mid bcy\), so \(a \mid c\).
+\end{proof}
+
+\begin{defn}
+  An interger \(n\) is called prime if \(n > 1\) and if the only positive
+  divisors of \(n\) are \(1\) and \(n\). If \(n > 1\) and if \(n\) is not prime,
+  then \(n\) is called composite.
+\end{defn}
+
+\begin{note}
+  Prime numbers are usually denoted by \(p\), \(p'\), \(p_{i}\), \(q\), \(q'\), \(q_{i}\).
+\end{note}
+
+\begin{theorem}
+  Every integer \(n > 1\) is either a prime number or a  product of prime numbers.
+\end{theorem}
+
+\begin{proof}
+  We use induction on \(n\). The theorem is clearly true for \(n = 2\). Assume
+  it is true for every integer \(<n\). Then if \(n\) is not prime it has a positive divisor
+  \(d \neq 1\), \(d \neq n\). Hence \(n = cd\), where \(c \neq n\). But both \(c\) and \(d\)
+  are \(<n\) and \(>1\) so each of \(c\), \(d\) is a product of prime numbers, hence so is n.
+\end{proof}
+
+\begin{theorem}[Euclid]
+  There are infinitily many prime numbers.
+\end{theorem}
+
+\begin{proof}[Euclid's Proof]
+  Suppose there are only a finite number, say \(p_{1}\), \(p_{2}\), \(\ldots\), \(p_{n}\).
+  Let \(N = 1 + p_{1}p_{2}\cdots p_{n}\). Now \(N > 1\) so either \(N\) is prime or \(N\)
+  is a product of primes. Of course \(N\) is not prime since it exceeds each \(p_{i}\).
+  Moreover, no \(p_{i}\) divides \(N\) (if \(p_{i}\mid N\) then \(p_{i}\) divides the difference
+  \(N - p_{1}p_{2}\cdots p_{n}=1\)). This contradicts Theorem 6.
+\end{proof}
+
+\begin{theorem}
+  If a prime \(p\) does not divides \(a\), then \((p, a) = 1\).
+\end{theorem}
+\begin{proof}
+  Let \(d = (p, a)\). Then \(d \mid p\) so \(d = 1\) or \(d = p\). But \(d \mid a\) so \(d \neq p\)
+  because \(p \nmid a\). Hence d = 1.
+\end{proof}
+
+\begin{theorem}
+  If a prime \(p\) divides \(ab\), the \(p \mid a\) or \(p \mid b\). More generally, if a
+  prime \(p\) divides a product \(a_{1}\cdots a_{n}\), then \(p\) divides at least one of the factors.
+\end{theorem}
+\begin{proof}
+  Assume \(p \mid ab\) and that \(p \nmid a\). We shall prove that \(p \mid b\). By Theorem 8,
+  \((p, a) = 1\) so, by Euclid's lemma, \(p \mid b\).
+
+  To prove the more general statement we use induction on \(n\), the number of factors. Details are left to the reader.
+\end{proof}
+
+\begin{theorem}[Fundamental theorem of arithmetic]
+  Every integer \(n > 1\) can be represented as a product of prime factors in only one way, apart from the
+  order of the factors.
+\end{theorem}
+
+\begin{proof}
+  We use induction on \(n\). The theorem is true for \(n = 2\). Assume, then, that it is true for all
+  integers greater than \(1\) and less than \(n\). We shall prove that \(n\) is composite and that \(n\) has
+  two factorizations, say
+  \begin{equation}
+    \label{eq:2}
+    n = p_{1}p_{2}\cdots p_{s} = q_{1}q_{2} \cdots q_{t}.
+  \end{equation}
+  We wish to show that \(s = t\) and that each \(p\) equals some \(q\). Since \(p_{1}\) divides the product
+  \(q_{1}q_{2}\cdots q_{t}\) it must divides at least one factor. Relabel \(q_{1}\), \(q_{2}\), \(\cdots\), \(q_{t}\)
+  so that \(p_{1} \mid q_{1}\). Then \(p_{1} = q_{1}\) since both \(p_{1}\) and \(q_{1}\) are primes. In~\ref{eq:2} we may
+  cancel \(p_{1}\) on both sides to obtain
+  \begin{equation*}
+    n/p_{1} =  p_{2}\cdots p_{s} = q_{2} \cdots q_{t}.
+  \end{equation*}
+  If \(s > 1\) or \(t > 1\) then \(1 < n/p_{1} < n\). The induction hypothesus tells us that
+  the two factorizations of \(n/p_{1}\) must be identical, apart from the order of the factors.
+  Therefore \(s = t\) and the factorizations in~\ref{eq:2} are also identical, apart from order.
+  This completes the proof.
+\end{proof}
+
+\begin{note}
+  In the factorization of an integer \(n\), a particular prime \(p\) may occur more than once. If the \emph{distinct}
+  prime factors of \(n\) are \(p_{1}\), \(\ldots\), \(p_{r}\) and if \(p_{i}\) occurs as a factor \(a_{i}\) times, we can write
+  \begin{equation*}
+    n = p_{1}^{a_{1}}\cdots p_{r}^{a_{r}}
+  \end{equation*}
+  or, more briefly,
+  \begin{equation*}
+    n = \prod_{i=1}^{r}p_{i}^{a_{i}}.
+  \end{equation*}
+  This is called the factorization of \(n\) into prime powers. We can also express \(1\)
+  in this form by taking each exponent \(a_{i}\) to be \(0\).
+\end{note}
+
+\begin{theorem}
+  If \(n = \prod_{i=1}^{r}p_{i}^{a_{i}}\), the set of positive divisors of \(n\) is the set of numbers of the form
+  \(n = \prod_{i=1}^{r}p_{i}^{c_{i}}\), where \(0 \leq c_{i} \leq a_{i}\) for \(i = 1, 2, \ldots, r\).
 \end{theorem}
 
 \end{document}
